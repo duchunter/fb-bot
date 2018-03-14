@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-require('dotenv').config()
+require('dotenv').config();
 import "babel-polyfill";
 import app from '../app';
 import http from 'http';

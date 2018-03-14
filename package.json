@@ -9,6 +9,8 @@
     "serve": "node build/bin/www.js"
   },
   "dependencies": {
+    "apiai": "^4.0.3",
+    "apiai-promise": "^1.0.0",
     "babel-cli": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-latest": "^6.24.1",
@@ -22,6 +24,7 @@
     "jade": "~1.11.0",
     "morgan": "~1.9.0",
     "request": "^2.85.0",
-    "serve-favicon": "~2.4.5"
+    "serve-favicon": "~2.4.5",
+    "uuid": "^3.2.1"
   }
 }
