@@ -1,18 +1,17 @@
 const uuidv1 = require('uuid/v1');
-const bot = require('apiai-promise')();
+const bot = require('apiai-promise')('f09a2e54d38d49b4aa78b148c3a775c5');
+
+module.exports = apiai;
 
 async function apiai(text) {
   let res;
   try {
-    let res = await bot.textRequest(text, {
+    res = await bot.textRequest(text, {
       sessionId: uuidv1()
     });
   } catch (e) {
-    console.log(e);
-    return 'Connection error';
+    return `Err, i don't understand that`;
   }
 
-  return res;
+  return res.result.fulfillment.speech;
 }
-
-apiai("Hello").then(res => console.log(res));

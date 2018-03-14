@@ -1,6 +1,7 @@
 'use strict'
 
 import request from 'request';
+let apiai = require('./apiai');
 
 // Handles messages events
 export function handleMessage(sender_psid, received_message) {
@@ -8,10 +9,11 @@ export function handleMessage(sender_psid, received_message) {
 
   // Check if the message contains text
   if (received_message.text) {
-    // Create the payload for a basic text message
-    response = {
-      text: received_message.text
-    }
+    // Send msg
+    apiai(received_message.text).then(text => {
+      callSendAPI(sender_psid, { text });
+    });
+
   } else if (received_message.attachments) {
     // Gets the URL of the message attachment
     let attachment_url = received_message.attachments[0].payload.url;
@@ -41,10 +43,10 @@ export function handleMessage(sender_psid, received_message) {
         },
       }
     }
-  }
 
-  // Sends the response message
-  callSendAPI(sender_psid, response);
+    // Sends the response message
+    callSendAPI(sender_psid, response);
+  }
 }
 
 // Handles messaging_postbacks events
