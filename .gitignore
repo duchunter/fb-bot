@@ -1,4 +1,4 @@
 node_modules
 build
 .env
-server/controller/apiai.js
+server/controller/config.js

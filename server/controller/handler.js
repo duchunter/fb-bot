@@ -6,6 +6,7 @@ let apiai = require('./apiai');
 // Handles messages events
 export function handleMessage(sender_psid, received_message) {
   let response;
+  console.log(received_message.nlp.entities);
 
   // Check if the message contains text
   if (received_message.text) {
